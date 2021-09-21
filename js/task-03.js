@@ -16,26 +16,13 @@ const images = [
 
 
 
-/*for(let el of images) document.querySelector('#gallery').insertAdjacentHTML('afterbegin', `<li><img src="${el.url}" alt="${el.alt}"></li>`);
-*/
-
-/*const createGalleryItem = ({ url, alt }) =>
-  `<li><img src="${url}" alt="${alt}" width = 200 height = 150></li>`;
-const galleryMarkup = images.reduce(
-  (acc, item) => acc + createGalleryItem(item),
-  ""
-);
-const galleryList = document.querySelector("#gallery");
-galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
-galleryList.setAttribute("style", "list-style-type:none; display: flex;");*/
 
 const galleryList = document.querySelector("#gallery");
-images.forEach(el => {
-  galleryList.insertAdjacentHTML(
-    'afterbegin',
-    `<li><img src = "${el.url}" alt = "${el.alt}"  width = "150" height = "100" /></li>`,
-  );
-});
+const imgElementAdd = images.map(el => {
+     return `<li><img src = "${el.url}" alt = "${el.alt}"  width = "150" height = "100" /></li>`
+     });
+
+galleryList.insertAdjacentHTML('afterbegin', imgElementAdd);
 
 galleryList.setAttribute("style", "list-style-type:none; display: flex;");
 
@@ -50,3 +37,16 @@ const galleryElement = ({ url, alt }) => {
 
 const imgElementAdd = images.map(galleryElement).join("");
 elementGallery.insertAdjacentHTML("beforeend", imgElementAdd);*/
+
+/*for(let el of images) document.querySelector('#gallery').insertAdjacentHTML('afterbegin', `<li><img src="${el.url}" alt="${el.alt}"></li>`);
+*/
+
+/*const createGalleryItem = ({ url, alt }) =>
+  `<li><img src="${url}" alt="${alt}" width = 200 height = 150></li>`;
+const galleryMarkup = images.reduce(
+  (acc, item) => acc + createGalleryItem(item),
+  ""
+);
+const galleryList = document.querySelector("#gallery");
+galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
+galleryList.setAttribute("style", "list-style-type:none; display: flex;");*/
